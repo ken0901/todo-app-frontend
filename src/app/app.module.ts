@@ -3,10 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { MenuComponent } from './layout/menu/menu.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    WelcomeComponent,
+    LoginComponent,
+    LogoutComponent,
+    MenuComponent,
+    FooterComponent,
+    TodoComponent,
+    TodoListComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
