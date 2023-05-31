@@ -1,0 +1,8 @@
+.navbar-expand-md .navbar-nav a {
+    color:white;
+    margin-left: 10px;
+}
+
+.navbar-brand:hover {
+    text-decoration: underline;
+}
