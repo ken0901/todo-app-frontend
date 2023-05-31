@@ -1,0 +1,17 @@
+caption {
+    text-align: center;
+}
+
+table {
+    caption-side: top;
+    /* border-collapse: collapse; */
+}
+
+
+
+tbody, td, tfoot, th, thead, tr {
+    /* border-color: inherit; */
+    /* border-style: solid; */
+    border-width: 1px;
+    text-align:center;
+}

@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
+  
+  todos = [
+    {id: 1, description: 'Learn to Dance'},    
+    {id: 2, description: 'Learn to Coding'},
+  ]
+  
 
   constructor() { }
 
