@@ -5,13 +5,14 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ErrorComponent } from './error/error.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { RouteGuardService } from './services/route-guard.service';
 
 const routes: Routes = [
     {path: '', component: LoginComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'welcome/:name', component: WelcomeComponent},
-    {path: 'todos', component: TodoListComponent},
-    {path: 'logout', component: LogoutComponent},
+    {path: 'welcome/:name', component: WelcomeComponent, canActivate: [RouteGuardService]},
+    {path: 'todos', component: TodoListComponent, canActivate:[RouteGuardService]},
+    {path: 'logout', component: LogoutComponent, canActivate:[RouteGuardService]},
     {path: '**', component: ErrorComponent}
 ];
 
