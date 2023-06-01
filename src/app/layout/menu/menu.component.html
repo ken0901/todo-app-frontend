@@ -5,15 +5,15 @@
         </div>
         <ul class="navbar-nav">
             <li>
-                <a routerLink="/welcome/ken" class="bar-link">Home</a>
-                <a routerLink="/todos" class="bar-link">Todos</a>
+                <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/welcome/ken" class="bar-link">Home</a>
+                <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/todos" class="bar-link">Todos</a>
             </li>
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end ">
             <li>
-                <a routerLink="/login" class="bar-link">Login</a>
-                <a routerLink="/logout" class="bar-link">Logout</a>
+                <a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="bar-link">Login</a>
+                <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout" class="bar-link">Logout</a>
             </li>
         </ul>
     </nav>
