@@ -12,6 +12,7 @@ export class TodoComponent implements OnInit {
 
   id: number;
   todo: Todo;
+  isSaveBtn: boolean = false;
 
   constructor(private todoService: TodoDataService,
               private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class TodoComponent implements OnInit {
     this.todo = new Todo(this.id,'',false,new Date());
 
     if(this.id != -1){
+      this.isSaveBtn = !this.isSaveBtn;
       this.todoService.retrieveTodo('ken', this.id).subscribe(
         data => {
           this.todo = data;
