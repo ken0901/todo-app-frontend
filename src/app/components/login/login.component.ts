@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BasicAuthenticationService } from 'src/app/services/basic-authentication.service';
 import { HardcodedAuthenticationService } from 'src/app/services/hardcoded-authentication.service';
 
 @Component({
@@ -14,18 +15,34 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
 
   constructor(private route: Router,
-              private authenticatetionService: HardcodedAuthenticationService) { }
+              private hardcodedAuthenticatetionService: HardcodedAuthenticationService,
+              private authenticationService: BasicAuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   handleLogin(){
-    if(this.authenticatetionService.authenticate(this.username, this.password)){
+    if(this.hardcodedAuthenticatetionService.authenticate(this.username, this.password)){
       this.route.navigate(['welcome',this.username]);
       this.invalidLogin = false;
     }else {
       this.invalidLogin = true;
     }
+  }
+
+  handleBasicAuthLogin(){
+    this.authenticationService.executeAuthenticationService(this.username, this.password)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.route.navigate(['welcome',this.username]);
+          this.invalidLogin = false;
+        },
+        error => {
+          console.log(error);
+          this.invalidLogin = true;
+        }
+      )
   }
 
 }
