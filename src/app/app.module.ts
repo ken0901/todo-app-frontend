@@ -35,7 +35,7 @@ import { HttpIntercepterBasicAuthService } from './services/http/http-intercepte
     FormsModule
   ],
   providers: [
-    // {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService, multi: true}
   ],
   bootstrap: [AppComponent]
 })
