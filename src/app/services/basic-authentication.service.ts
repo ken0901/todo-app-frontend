@@ -44,6 +44,24 @@ export class BasicAuthenticationService {
     sessionStorage.removeItem(TOKEN);
   }
 
+  executeJWTAuthenticationService(username: string, password: string) {
+
+    return this.http.post<any>(
+      `${API_URL}/authenticate`, {
+      username,
+      password
+    }).pipe(
+      map(
+        data => {
+          sessionStorage.setItem(AUTHENTICATED_USER, username);
+          sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
+          return data;
+        }
+      )
+    );
+    //console.log("Execute Hello World Bean Service")
+  }
+
   executeAuthenticationService(username, password){
     let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
 
